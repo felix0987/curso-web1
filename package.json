@@ -1,0 +1,28 @@
+{
+  "name": "ep2-web",
+  "version": "1.0.0",
+  "description": "ep2 del curso web",
+  "main": " index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felix0987/curso-web1.git"
+  },
+  "keywords": [
+    "jquery",
+    "javascript",
+    "bootstrap"
+  ],
+  "author": "felix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felix0987/curso-web1/issues"
+  },
+  "homepage": "https://github.com/felix0987/curso-web1#readme",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "jsdom": "^19.0.0"
+  }
+}
