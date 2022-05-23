@@ -1,7 +1,8 @@
 //obtengo el id con el html
 const div = $('#root');
-var principal ;
-
+let principal = $("#principal").val();
+let plazoMeses;
+let tasaInteresMensual ;
 //input usuario
 //tasa efectiva anual 
 //Numero de meses que durara el prestamo
@@ -11,9 +12,13 @@ var principal ;
 //datos internos del banco
 //seguro de desgravamen 0.5%
 //monto minimo de la inicial:
-let tea  = 12;
-let tem = Math.pow(1 + tea,(1/12)) - 1;
+let tea  =   0.05;
+let tem = Math.pow((1 + tea), 1/12) - 1;
+let I = tem * 100;
+console.log(I);
 console.log(tem);
+let couta = 45000.00 *  Math.pow((1 + I),12) * I / Math.pow((1 + I) , 12) - 1; 
+console.log(couta);
 //las coutas se calcularan utilizando tasa efectica mensual(tem)
 // tem = ((1 + tea)1/12) - 1
 
@@ -21,7 +26,36 @@ console.log(tem);
 //que se utiliza en los bancos latinoamericanos principalmente.
 
 
+jQuery(function(){
+    $("#btn1").click(function(){
+        principal = $("#principal").val(); 
+        plazoMeses = $("#meses").val();
+        $("#123").text(principal);
 
+        for(let i = 0; i < plazoMeses; i++){
+            const th3 = $('<th ></th>');
+            const td1 = $('<td id="123"></td>');
+            const td2 = $('<td id="123"></td>');
+            const td3 = $('<td></td>');
+            const td4 = $('<td></td>');
+            const tr2 = $('<tr></tr>');
+        
+            table.append(tr2);
+            tr2.append(th3);
+            tr2.append(td1);
+            tr2.append(td2);
+            tr2.append(td3);
+            tr2.append(td4);
+            th3.text(i);
+            td1.text(principal);  
+            td2.text("vbvbb");
+            td3.text("dsfsdf");
+            td4.append("ffdggfdg");
+                 
+        }
+        
+    })
+});
 
 
 
@@ -46,7 +80,8 @@ div.append(`<h1 class="text-center mb-3 mt-3  ">Armortización Sistema Francés<
 
 div.append(`<p class="title_body mx-2 ">
               La amortización francés, se caracteriza por cuotas iguales, valores de amortización del <br> principal e interés crecientes. <br>Para calcular los pagos mensuales introduzca: El principal, el plazo en meses y la tasa de interes<br> mensual. Utilice el punto como separador decimal. Por ejemplo: 25.152,47; se escribe 25152.47; Los <br> resultados aparecerán de forma automática, despues de pinchar en <b>"Calcular."</b>' 
-              </p>`);
+              </p>`
+);
 
 const principalForm = $(`
                      <form>
@@ -62,10 +97,10 @@ const principalForm = $(`
                               </div>
                             </div>
                             <div class="row mb-3 mx-0">
-                              <label for="colFormLabelSm" class="col-sm-3 col-form-label                  col-form-label-sm">Plazo en mese:
+                              <label for="colFormLabelSm" class="col-sm-3 col-form-label                  col-form-label-sm">Plazo en meses:
                               </label>
                               <div class="col-sm-3">
-                                 <input type="number" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
+                                 <input type="number" class="form-control form-control-sm" id="meses" value =  ${plazoMeses}  " placeholder="">
                               </div>
                             </div>
                            <div class="row mb-3 mx-0">
@@ -77,10 +112,10 @@ const principalForm = $(`
                            </div>
                            <div class="d-flex flex-row flex-nowrap mb-0 mb-4 mt-4 ">
                                <div class="row mx-3">   
-                                 <button class="btn btn-outline-secondary  col-sm-12" type="button">Calcular</button>
+                                 <button id="btn1" class="btn btn-outline-secondary  col-sm-12" type="button">Calcular</button>
                                </div> 
                                <div class="ms-5">
-                                 <button id="btn1" class="btn btn-outline-secondary ms-5 col-sm-10" type="button">Reset</button>
+                                 <button  class="btn btn-outline-secondary ms-5 col-sm-10" type="button">Reset</button>
                                </div>
                            </div>
                            <div class="row mb-3 mx-0">
@@ -104,121 +139,35 @@ const principalForm = $(`
                                  <input type="number" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
                               </div>
                            </div>
-                       </form>`);     
+                       </form>`
+);     
     
                        
-/*                       
-const table2 = $(`
-              <table class="">
-                   <thead>
-                        <tr>
-                          <th scope="col">Parc</th>
-                          <th scope="col">Amort</th>
-                          <th scope="col">Interés</th>
-                          <th scope="col">Pago</th>
-                          <th scope="col">saldo</th>
-                        </tr>
-                   </thead>
-                   <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td id="123" > 244</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>@fat</td>
-                          </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td >Larry the Bird</td>
-                          <td>@twitter</td>
-                          <td>@twitter</td>
-                          <td>@twitter</td>
-                          
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td >Larry the Bird</td>
-                          <td>@twitter</td>
-                          <td>@twitter</td>
-                          <td>@fat</td>
-                        </tr>
-                 </tbody>
-               </table>`);     
-
-
-/*
-$(document).ready(function(){
-    $("#btn1").click(function(){
-      alert("Value: " + $("#principal").val());
-    });
-  });
-  $(document).ready(function(){
-    $("#btn1").click(function(){
-      alert("Value: " + $("#principal").val());
-    });
-  });
-  */
-
-
-var principal ;
-const table = $('<table class="table"></table>');
-const tableHead = $('<thead"></thead>');
-const tBody = $('<tbody></tbody>')
-const tr = $('<tr></<tr')
-table.append(tableHead);
-tableHead.append(tr);
-table.append(tBody); 
-
-
-const header = ['Parc ', 'Amort  ' , ' Interés  ','Pago  ', 'saldo  ']
-
-jQuery(function(){
-    $("#btn1").click(function(){
-        principal = $("#principal").val(); ;
-        $("#123").text(principal);
-    })
-});
-
+                        
 div.append(principalForm);
 
 
-console.log("fun2" + principal);
-let total = 12;
-header.forEach(header =>{
-    const th = $('<th scope="col"></th>');    
-    tr.append(th);  
-    th.text(header);
-})
+const table = $(`
+           <table class="table">
+                <thead>
+                    <tr>
+                         <th scope="col">Parc</th>
+                         <th scope="col">Amort</th>
+                         <th scope="col">Interés</th>
+                         <th scope="col">Pago</th>
+                         <th scope="col">saldo</th>
+                    </tr>
+                </thead>
+            </table>`
+);
 
-for(let i = 0; i < total; i++){
-    const th3 = $('<th scope="row"></th>');
-    const td1 = $('<td id="123"></td>');
-    const td2 = $('<td id="123"></td>');
-    const td3 = $('<td></td>');
-    const td4 = $('<td></td>');
-    const tr2 = $('<tr></tr>');
 
-    table.append(tr2);
-    tr2.append(th3);
-    tr2.append(td1);
-    tr2.append(td2);
-    th3.text(i);
-    td1.text("dsfsdf");  
-    td2.text("vbvbb");
-   
-   
-    
-
-}
-
+const tbody = $('<tbody></tbody>');
 div.append(table);
+table.append(tbody);
+
+
+
 
 
 
