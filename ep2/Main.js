@@ -69,34 +69,38 @@ jQuery(function(){
                 anteriorInteres = interes;
 
             }
-            else
-            {
-                if(i >= 1){
+            if(i >= 1){
                     
-                    th3.text(i);
-                    td1.text(amort);  
-                    td2.text(interes );
-                    td3.text(coutaMensual);
-                    td4.text(principal);
-                    td5.text("seguro");
-                    td6.text("ddddd");
+                th3.text(i);
+                td1.text(amort);  
+                td2.text(interes );
+                td3.text(coutaMensual);
+                td4.text(principal);
+                td5.text("seguro");
+                td6.text("ddddd");
                     
-                    interes = anteriorPirncipal * tasaInteresMensual / 100;
-                    amort = coutaMensual - interes;
-                    principal = principal - amort;
+                interes = (anteriorPirncipal * tasaInteresMensual / 100).toFixed(2);
+                amort = (coutaMensual - interes).toFixed(2);
+                principal = (principal - amort).toFixed(2);
 
-                    var anteriorAmor = amort;
+                console.log(interes);
+                
 
-                    var anteriorInteres = interes;
+                var anteriorAmor = amort;
 
-                    var anteriorPirncipal = principal;
+                var anteriorInteres = interes;
+
+                var anteriorPirncipal = principal;
+
+                var totalinteres ;
+
+                totalinteres+=interes;
+
+                console.log("total" + totalinteres);
                     
                     
                 }
-                
-                                 
-            }
-            
+                 
         
         }
        
