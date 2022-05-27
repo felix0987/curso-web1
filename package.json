@@ -1,0 +1,22 @@
+{
+  "name": "parcial-web",
+  "version": "1.0.0",
+  "description": "forma parte de la epParcialweb",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felix0987/curso-web1.git"
+  },
+  "author": "felix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felix0987/curso-web1/issues"
+  },
+  "homepage": "https://github.com/felix0987/curso-web1#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
